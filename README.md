@@ -1,0 +1,1 @@
+My solutions to the exercises for the functional programming course at Sofia University (2017-2018).
