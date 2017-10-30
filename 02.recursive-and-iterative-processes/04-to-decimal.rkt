@@ -2,13 +2,12 @@
 (require rackunit)
 (require rackunit/text-ui)
 
-
 ; Обръщаме число от двоична в десетична бройна система
 (define (to-decimal number)
   (define (to-decimal-inner number next-power-of-2 result-accumulator)
     (if (= number 0)
         result-accumulator
-        (to-decimal-inner (floor (/ number 10)) (* next-power-of-2 2) (+ result-accumulator (* next-power-of-2 (mod number 10))))))
+        (to-decimal-inner (quotient number 10) (* next-power-of-2 2) (+ result-accumulator (* next-power-of-2 (remainder number 10))))))
   
   (to-decimal-inner number 1 0))
 

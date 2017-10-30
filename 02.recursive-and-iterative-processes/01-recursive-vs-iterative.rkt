@@ -1,15 +1,14 @@
 #lang racket
 
-; Пита се какви процеси (итеративен или рекурсивен) се случват при извикването на тези две процедури
-
 (define (inc x) (+ x 1))
 (define (dec x) (- x 1))
 
+; Пита се какви процеси (итеративен или рекурсивен) се случват при извикването на тези две процедури
 (define (first-add a b)
   (if (= a 0)
       b
       (inc (first-add (dec a) b))))
-	  
+
 ; first-add is recursive, for instance:
 ; (first-add 3 10) =
 ; (inc (first-add (dec 3) 10)) =
@@ -27,7 +26,7 @@
   (if (= a 0)
       b
       (second-add (dec a) (inc b))))
-	  
+
 ; second-add is iterative, for instance:
 ; (second-add 3 10) =
 ; (second-add (dec 3) (inc 10)) = 

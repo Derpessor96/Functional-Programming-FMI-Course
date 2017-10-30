@@ -1,15 +1,16 @@
 #lang racket
-
-; Искаме да проверим дали число е просто.
+(require rackunit)
+(require rackunit/text-ui)
 
 (define (square x) (* x x))
 
+; Искаме да проверим дали число е просто.
 (define (prime? number)
   (define (prime-inner number next-divisor)
     (cond
       ((= number 1) #f)
       ((> (square next-divisor) number) #t)
-      ((= (mod number next-divisor) 0) #f)
+      ((= (remainder number next-divisor) 0) #f)
       (else (prime-inner number (+ next-divisor 1)))))
   
   (prime-inner number 2))

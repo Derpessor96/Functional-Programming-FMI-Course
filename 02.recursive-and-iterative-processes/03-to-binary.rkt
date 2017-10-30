@@ -2,24 +2,23 @@
 (require rackunit)
 (require rackunit/text-ui)
 
-; Обръщаме число в двоична бройна система
-
 (define (binary-digits number)
-  (define (binary-digits-inner number accumulator)
+  (define (binary-digits-inner number result-accumulator)
     (if (= number 0)
-        accumulator
-        (binary-digits-inner (floor (/ number 2)) (+ accumulator 1))))
+        result-accumulator
+        (binary-digits-inner (quotient number 2) (+ result-accumulator 1))))
   
   (if (= number 0)
-    1
-    (binary-digits-inner number 0)))
+      1
+      (binary-digits-inner number 0)))
 
+; Обръщаме число в двоична бройна система
 (define (to-binary number)
-  (define (to-binary-inner number next-power result)
+  (define (to-binary-inner number next-power result-accumulator)
     (cond
-      ((= next-power 1) (+ (* result 10) (mod number 2)))
-      ((< number next-power) (to-binary-inner number (/ next-power 2) (* result 10)))
-      (else (to-binary-inner (- number next-power) (/ next-power 2) (+ (* result 10) 1)))))
+      ((= next-power 1) (+ (* result-accumulator 10) (remainder number 2)))
+      ((< number next-power) (to-binary-inner number (/ next-power 2) (* result-accumulator 10)))
+      (else (to-binary-inner (- number next-power) (/ next-power 2) (+ (* result-accumulator 10) 1)))))
     
   (to-binary-inner number (expt 2 (- (binary-digits number) 1)) 0))
 
