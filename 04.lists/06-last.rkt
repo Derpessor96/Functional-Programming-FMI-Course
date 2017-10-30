@@ -3,7 +3,6 @@
 (require rackunit/text-ui)
 
 ; Искаме да вземем последния елемент на даден списък
-
 (define (last xs)
   (if (null? (cdr xs))
       (car xs)

@@ -3,7 +3,6 @@
 (require rackunit/text-ui)
 
 ; Търсим сумата на числата от даден списък
-
 (define (sum-elements xs)
   (define (sum-elements-inner xs result-accumulator)
     (if (null? xs)

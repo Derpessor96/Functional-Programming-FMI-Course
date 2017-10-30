@@ -3,7 +3,6 @@
 (require rackunit/text-ui)
 
 ; Искаме да проверим дали х се съдържа в lst
-
 (define (member? x lst)
   (cond
     ((null? lst) #f)

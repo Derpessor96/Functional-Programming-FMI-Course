@@ -8,11 +8,10 @@
       (cons (car xs) (append (cdr xs) ys))))
 
 ; Търсим функция, която обръща даден списък
-; Very inefficient
 (define (reverse xs)
   (if (null? xs)
       '()
-      (append (reverse (cdr xs)) (cons (car xs) '()))))
+      (append (reverse (cdr xs)) (cons (car xs) '())))) ; Very inefficient
 
 ; И нейн итеративен вариант
 (define (reverse-iter xs)

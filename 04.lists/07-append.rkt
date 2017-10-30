@@ -3,7 +3,6 @@
 (require rackunit/text-ui)
 
 ; Търсим функция, която конкатенира два списъка
-
 (define (append xs ys)
   (if (null? xs)
       ys

@@ -3,7 +3,6 @@
 (require rackunit/text-ui)
 
 ; Търсим дължината на даден списък.
-
 (define (length xs)
   (define (length-inner xs result-accumulator)
     (if (null? xs)

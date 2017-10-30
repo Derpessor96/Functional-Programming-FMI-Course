@@ -3,7 +3,6 @@
 (require rackunit/text-ui)
 
 ; Искаме да вземем i-тия елемент от списъка lst, като броим от 0.
-
 (define (list-ref lst i)
   (cond
     ((= i 0) (car lst))
