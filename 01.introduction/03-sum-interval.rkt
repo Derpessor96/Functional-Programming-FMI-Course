@@ -1,16 +1,13 @@
 #lang racket
 (require rackunit)
 (require rackunit/text-ui)
-; 1.3 - Съчинете процедура, която намира сумата на числата в даден затворен интервал.
 
+; 1.3 - Съчинете процедура, която намира сумата на числата в даден затворен интервал.
 ; Not iterative
 (define (sum-interval start end)
   (if (> start end)
       0
-      (+ start (sum-interval (+ start 1) end))
-  )
-)
-
+      (+ start (sum-interval (+ start 1) end))))
 
 (define tests
   (test-suite

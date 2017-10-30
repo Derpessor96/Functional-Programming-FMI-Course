@@ -1,16 +1,15 @@
 #lang racket
 (require rackunit)
 (require rackunit/text-ui)
+
 ; 1.5 - Съчинете процедура, която обръща цифрите на дадено число.
 ; Трябва да работи и за отрицателни числа.
-
 (define (reverse-digits number)
-  (define (reverse-digits-inner number accumulator)
+  (define (reverse-digits-inner number result-accumulator)
     (cond
-      ((< number 0) (- (reverse-digits-inner (- number) accumulator)))
-      ((= number 0) accumulator)
-      (else (reverse-digits-inner (floor (/ number 10)) (+ (* 10 accumulator) (mod number 10))))
-    ))
+      ((< number 0) (- (reverse-digits-inner (- number) result-accumulator)))
+      ((= number 0) result-accumulator)
+      (else (reverse-digits-inner (quotient number 10) (+ (* 10 result-accumulator) (remainder number 10))))))
   
   (reverse-digits-inner number 0))
 

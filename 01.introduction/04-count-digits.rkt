@@ -1,17 +1,14 @@
 #lang racket
 (require rackunit)
 (require rackunit/text-ui)
+
 ; 1.4 - Търсим процедура, която намира броя цифри на дадено число
 ; Трябва да работи и за отрицателни числа.
-
 (define (count-digits number)
   (cond 
     ((< number 0) (count-digits (- number)))
     ((< number 10) 1)
-    (else (+ 1 (count-digits (/ number 10))))
-  )
-)
-
+    (else (+ 1 (count-digits (quotient number 10))))))
 
 (define tests
   (test-suite
