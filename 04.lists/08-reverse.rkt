@@ -2,13 +2,17 @@
 (require rackunit)
 (require rackunit/text-ui)
 
-; TODO: Fix the recursive variant
+(define (append xs ys)
+  (if (null? xs)
+      ys
+      (cons (car xs) (append (cdr xs) ys))))
 
 ; Търсим функция, която обръща даден списък
-;(define (reverse xs)
-;  (if (null? xs)
-;      xs
-;      (cons (car xs) (reverse (cdr xs)))))
+; Very inefficient
+(define (reverse xs)
+  (if (null? xs)
+      '()
+      (append (reverse (cdr xs)) (cons (car xs) '()))))
 
 ; И нейн итеративен вариант
 (define (reverse-iter xs)
