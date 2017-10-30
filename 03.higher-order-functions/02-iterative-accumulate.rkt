@@ -5,12 +5,12 @@
 ; Функцията accumulate, която видяхме на упражнение.
 ; Да стане по итеративен начин.
 (define (accumulate operation null-value start end term next)
-  (define (accumulate-iterative operation start end term next result-accumulator)
-    (if (> start end)
+  (define (accumulate-iterative current result-accumulator)
+    (if (> current end)
         result-accumulator
-        (accumulate-iterative operation (next start) end term next (operation (term start) result-accumulator))))
+        (accumulate-iterative (next current) (operation (term current) result-accumulator))))
 
-  (accumulate-iterative operation start end term next null-value))
+  (accumulate-iterative start null-value))
 
 (define (id x) x)
 (define (inc x) (+ x 1))

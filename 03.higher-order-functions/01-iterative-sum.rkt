@@ -5,12 +5,12 @@
 ; Функцията sum, която видяхме на упражнение.
 ; Да стане по итеративен начин.
 (define (sum start end term next)
-  (define (sum-iterative start end term next result-accumulator)
-    (if (> start end)
+  (define (sum-iterative current result-accumulator)
+    (if (> current end)
         result-accumulator
-        (sum-iterative (next start) end term next (+ (term start) result-accumulator))))
+        (sum-iterative (next current) (+ (term current) result-accumulator))))
 
-  (sum-iterative start end term next 0))
+  (sum-iterative start 0))
 
 (define (id x) x)
 (define (inc x) (+ x 1))
