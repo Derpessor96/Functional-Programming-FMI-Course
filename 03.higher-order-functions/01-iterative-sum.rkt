@@ -4,12 +4,11 @@
 
 ; Функцията sum, която видяхме на упражнение.
 ; Да стане по итеративен начин.
-
 (define (sum start end term next)
-  (define (sum-iterative start end term next accumulator)
+  (define (sum-iterative start end term next result-accumulator)
     (if (> start end)
-        accumulator
-        (sum-iterative (next start) end term next (+ (term start) accumulator))))
+        result-accumulator
+        (sum-iterative (next start) end term next (+ (term start) result-accumulator))))
 
   (sum-iterative start end term next 0))
 

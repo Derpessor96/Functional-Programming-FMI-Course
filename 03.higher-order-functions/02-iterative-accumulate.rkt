@@ -4,13 +4,11 @@
 
 ; Функцията accumulate, която видяхме на упражнение.
 ; Да стане по итеративен начин.
-
-
 (define (accumulate operation null-value start end term next)
-  (define (accumulate-iterative operation start end term next accumulator)
+  (define (accumulate-iterative operation start end term next result-accumulator)
     (if (> start end)
-        accumulator
-        (accumulate-iterative operation (next start) end term next (operation (term start) accumulator))))
+        result-accumulator
+        (accumulate-iterative operation (next start) end term next (operation (term start) result-accumulator))))
 
   (accumulate-iterative operation start end term next null-value))
 
