@@ -26,6 +26,7 @@
       (let ((f (lambda (x) (expt x 2)))
             (arg 2))
         (check-equal? ((repeat f 2) arg) ((repeated f 2) arg)))
+      (check-equal? ((repeat (lambda (x) (* x 2)) 5) 3) 96)
   )
 )
 
