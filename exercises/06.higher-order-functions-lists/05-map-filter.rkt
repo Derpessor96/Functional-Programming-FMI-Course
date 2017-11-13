@@ -8,7 +8,7 @@
 
 ; Дефинирайте filter въз основа на fold-right
 (define (filter p? xs)
-  (fold-right (lambda (current acc) (if (p? current) (cons current acc) 1)) '() xs))
+  (fold-right (lambda (current acc) (if (p? current) (cons current acc) acc)) '() xs))
 
 ; Дефинирайте map въз основа на fold-left
 (define (map f xs)
