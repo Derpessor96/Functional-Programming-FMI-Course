@@ -6,7 +6,6 @@
 ; Искаме да комбинираме всички елементи на списък в една резултатна стойност
 ; Като accumulate, само че вместо числов интервал, работим със списък
 ; Хубаво е да направим този fold итеративно, като натрупваме в null-value
-
 (define (fold-left op null-value xs)
   (define (helper xs result-accumulator)
     (if (null? xs)

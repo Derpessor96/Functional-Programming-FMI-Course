@@ -8,7 +8,6 @@
 ; Като резултат връща нов списък като върхъ всеки елемент от
 ; дадения е приложена функцията
 ; Тоест: (map f (el1 el2 el3 ... elk)) -> ((f el1) (f el2) ... (f elk))
-
 (define (map f xs)
   (define (helper xs result-accumulator)
     (if (null? xs)
@@ -16,7 +15,6 @@
         (helper (cdr xs) (cons (f (car xs)) result-accumulator))))
 
   (helper xs '()))
-
 
 (define map-tests
   (test-suite "Map tests"

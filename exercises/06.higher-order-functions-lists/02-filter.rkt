@@ -8,13 +8,12 @@
 ; Връща като резултат списък от всички елементи на оригиналния,
 ; които удовлетворяват предиката
 ; Тоест: (filter odd? '(1 2 3)) -> '(1 3)
-
 (define (filter p? xs)
   (define (helper xs result-accumulator)
     (cond
-     ((null? xs) (reverse result-accumulator))
-     ((p? (car xs)) (helper (cdr xs) (cons (car xs) result-accumulator)))
-     (else (helper (cdr xs) result-accumulator))))
+      ((null? xs) (reverse result-accumulator))
+      ((p? (car xs)) (helper (cdr xs) (cons (car xs) result-accumulator)))
+      (else (helper (cdr xs) result-accumulator))))
   
   (helper xs '()))
 
