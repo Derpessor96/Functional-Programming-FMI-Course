@@ -3,6 +3,7 @@
 (require rackunit/text-ui)
 (require (only-in "./02-make-matrix.rkt" make-matrix))
 (require (only-in "./02-make-matrix.rkt" drop))
+(provide get-column)
 
 ; Искаме да можем да взимаме к-тата колона на дадена матрица.
 (define (get-column matrix k)
