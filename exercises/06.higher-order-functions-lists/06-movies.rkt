@@ -1,7 +1,5 @@
 #lang racket
-(require rackunit)
-(require rackunit/text-ui)
- 
+
 (define movies
   '(
     ("Fight Club" 8.8 1999)
